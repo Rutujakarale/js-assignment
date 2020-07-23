@@ -1,0 +1,64 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE html >
+<html>
+<head>
+<title>SalesPay</title>
+<script type="text/javascript">
+
+function calculate()
+{
+var i=0; var j;
+var s = prompt("Enter Gross Sales of an Employee (Exit: -1):", "");
+var gross = parseInt(s);
+var sal_btwn = [0,0,0,0,0,0,0,0,0,0,0];
+while (gross != -1)
+{
+var income = new Array();
+var salary = 200.0 + Math.round(0.09*gross);
+income[i]=salary;
+document.writeln("The Gross sales made by salesperson in a week is $ ", +gross);
+document.write("<br />");
+document.writeln("Salesperson's Commission is $", +income[i]);
+document.write("<br />");
+if (income[i] >= 200 && income[i] <= 299)
+{
+//alert(income[i]);
+//alert(sal_btwn[0]);
+sal_btwn[2] += 1;
+}
+if (income[i]>= 0 && income[i]<= 5000)
+sal_btwn[3] += 2;
+if (income[i]>= 50001 && income[i] <= 10000)
+sal_btwn[4] += 5;
+if (income[i] >= 10001 && income[i] <= 20000)
+sal_btwn[5] += 7;
+if (income[i] >= 20000 )
+sal_btwn[6] += 10;
+
+document.write("<br />");
+i++;
+var s = prompt("Enter Gross Sales of an Employee (Exit: -1):", "");
+var gross = parseInt(s);
+}
+document.writeln("<h4>Number of sales people earned salaries in each of the following ranges:</h4>");
+document.writeln("$0-$5000 : " +sal_btwn[2]);
+document.write("<br />");
+document.writeln("$50001-$10000 : " +sal_btwn[3]);
+document.write("<br />");
+document.writeln("$10001-$20000 : " +sal_btwn[4]);
+document.write("<br />");
+document.writeln("$20000-$above : " +sal_btwn[5]);
+document.write("<br />");
+
+}
+// -->
+</script>
+</head>
+<body onload="calculate()">
+<h1>SalesPay</h1>
+<hr />
+
+<p>Press F5 or Refresh to load script again.</p>
+
+</body>
+</html>
